@@ -1,0 +1,66 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.header {
+    background: #cbd4d9;
+    height: 60px;
+  }
+  
+  .header-numbers {
+    margin: 20px;
+    padding: 4px 12px;
+    text-align: center;
+    border: 1px solid #798f9b;
+    border-radius: 50%;
+    background: #798f9b;
+    color: white;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+  }
+  
+  .content-container {
+    padding: 25px 20px;
+    margin-top: -80px;
+  }
+  
+  .header.main-header {
+    background: #e2e8e8;
+  }
+  
+  .text-content {
+    border: 1px solid #cbd4d9;
+    padding: 5% 10% 0% 10%;
+    }
+
+  
+/* Inline #5 | http://localhost:8080/login */
+
+.buttonSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 5% 10%;
+  border: 1px solid #798f9b;
+  margin: -25px 20px;
+  border-top: 0px;
+}
+
+button {
+  flex-basis: 1;
+  border: 0px;
+  background: white;
+  font-weight: bold;
+  transition-duration: 0.2s;
+  padding: 10px 20px;
+  }
+
+button:hover {
+  background-color: #092B45; /* Green */
+  color: white;
+  padding: 10px 20px;
+}

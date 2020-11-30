@@ -1,0 +1,13 @@
+.title h2 {
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  box-sizing: content-box;
+}
+
+.title::after {
+  border-bottom: 3px solid #45C1DC;
+  padding-top: 0px;
+  width: 50px;
+  display: block;
+  content: "";
+}
