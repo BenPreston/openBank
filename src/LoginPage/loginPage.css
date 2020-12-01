@@ -1,0 +1,17 @@
+form {
+  margin-top: 15px;
+}
+label {
+  text-transform: capitalize;
+}
+.btn.btn-primary {
+  background: #45c1dc;
+}
+
+.btn.btn-link {
+  color: #45c1dc;
+}
+
+.header-numbers.first-number {
+  background: #092b45;
+}

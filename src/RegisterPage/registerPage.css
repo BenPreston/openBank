@@ -1,0 +1,32 @@
+.header-numbers.first-number {
+    background: #dd194c;
+    border: #dd194c;
+}
+
+.header-numbers.second-number {
+    background: #092b45;
+}
+
+.explainerText {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.form-inputs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 0 50%;
+    padding: 5px;
+    min-width: 200px;
+}
+
+.form-group > label {
+    font-weight: bold;
+}
+
+input.checkbox {
+    margin-left: 5px;
+}

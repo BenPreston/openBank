@@ -30,9 +30,9 @@ function App() {
                 <div className="header main-header"></div>
                 <div className="content-container">
                     <div className="header">
-                        <span className="header-numbers">1</span>
-                        <span className="header-numbers">2</span>
-                        <span className="header-numbers">3</span>
+                        <span className="header-numbers first-number">1</span>
+                        <span className="header-numbers second-number">2</span>
+                        <span className="header-numbers third-number">3</span>
                     </div>
 
                     <div className="text-content">
@@ -50,10 +50,10 @@ function App() {
                         </Router>
                     </div>
                 </div>
-                <div className="buttonSection">
+                {/* <div className="buttonSection">
                     <button>{i18next.t('cancel')}</button>
                     <button>{i18next.t('next')}</button>
-                </div>
+                </div> */}
             </div>
         </>
     );

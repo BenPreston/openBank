@@ -1,33 +1,57 @@
-
 .imageAndTextWrapper {
-    display: flex;
-    margin-top: 60px;
-    flex-basis: 0;
-  }
-  
-  .imageAndText {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-basis: 0;
-    flex-grow: 1;
-  }
-  
-  .imageText {
-    text-align: center;
-  }
+  display: flex;
+  margin-top: 60px;
+  flex-basis: 0;
+}
 
-  img {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-  }
-  
+.imageAndText {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.imageText {
+  text-align: center;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
 .subHeader {
-    font-weight: bold;
-  }
-  
-  .headerAndText {
-    margin-top: 25px;
-  }
-  
+  font-weight: bold;
+}
+
+.headerAndText {
+  margin-top: 25px;
+}
+
+.buttonSection {
+  display: flex;
+  justify-content: space-between;
+  padding: 5% 10%;
+  border-top: 1px solid #798f9b;
+  margin: -25px 20px;
+  margin: 0px -12.5%;
+  border-top: 1px #cbd4d9 solid;
+}
+
+button {
+  flex-basis: 1;
+  border: 0px;
+  background: white;
+  font-weight: bold;
+  transition-duration: 0.2s;
+  padding: 10px 20px;
+  text-transform: capitalize;
+}
+
+button:hover {
+  background-color: #092b45; 
+  color: white;
+  padding: 10px 20px;
+}

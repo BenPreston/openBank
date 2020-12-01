@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { userActions } from '../_actions';
 
+import './homePage.css'
+
 function HomePage() {
-    const users = useSelector(state => state.users);
     const user = useSelector(state => state.authentication.user);
     const dispatch = useDispatch();
 
@@ -13,31 +14,13 @@ function HomePage() {
         dispatch(userActions.getAll());
     }, []);
 
-    function handleDeleteUser(id) {
-        dispatch(userActions.delete(id));
-    }
-
     return (
         <div className="col-lg-8 offset-lg-2">
-            <h1>Hi {user.firstName}!</h1>
-            <p>You're logged in with React Hooks!!</p>
-            <h3>All registered users:</h3>
-            {users.loading && <em>Loading users...</em>}
-            {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-            {users.items &&
-                <ul>
-                    {users.items.map((user, index) =>
-                        <li key={user.id}>
-                            {user.firstName + ' ' + user.lastName}
-                            {
-                                user.deleting ? <em> - Deleting...</em>
-                                : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                : <span> - <a onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</a></span>
-                            }
-                        </li>
-                    )}
-                </ul>
-            }
+            <h1>Welcome {user.username}!</h1>
+            <img src="https://thumbs.gfycat.com/PowerfulAfraidBluebottle-max-1mb.gif" alt="duckTalesBank"/>
+            <p>If you made it this far I was going to try and do some cool stuff related to the bank. But sadly I didn't even have time to get the whole thing finished. </p> 
+            <p>I would have properly cleaned up my code, finished the dual language implementation so it's in Spanish and English ... and resolved the colour number issue at the top with state. I sadly just ran out of time. I would love to show you more at interview though!</p>
+    
             <p>
                 <Link to="/login">Logout</Link>
             </p>

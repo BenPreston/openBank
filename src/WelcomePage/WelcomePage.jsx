@@ -17,7 +17,8 @@ function WelcomePage() {
 
     return(
         <>
-            <Title titles={i18next.t('CreateYourPasswordManager')} underline={true} />
+        <div className='welcomeContainer'>
+            <Title titles={i18next.t('CreateYourPasswordManager')} />
 
             <div className="imageAndTextWrapper">
             <div className="imageAndText">
@@ -40,7 +41,19 @@ function WelcomePage() {
                 <div className="subHeader">{i18next.t('welcomeText.subtitle2')}</div>
                 <p>{i18next.t('welcomeText.subtitleText2')}</p>
             </div>
-        </>
+            
+        </div>
+        <div className="buttonSection">
+        <Link to="/login">
+            <button>{i18next.t('cancel')}</button>
+        </Link>
+        <Link to="/register">
+            <button>{i18next.t('next')}</button>
+        </Link>
+        
+
+    </div>
+    </>
     )
 }
 
