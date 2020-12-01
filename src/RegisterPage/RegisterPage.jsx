@@ -1,89 +1,87 @@
-import React, { useState, useEffect } from 'react';
-import { Link, Route, BrowserRouter, Switch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { userActions } from '../_actions';
+import { userActions } from '../_actions'
 
-import i18next from '../_services/i18n';
+import i18next from '../_services/i18n'
 
 import Title from '../Components/Title/Title'
 
 import './registerPage.css'
 
-function RegisterPage() {
-    const [user, setUser] = useState({
-        username: '',
-        password: '',
-        passwordCheck: '',
-        passwordHint: '',       
-        acceptTerms: false
-    });
-    const [submitted, setSubmitted] = useState(false);
-    const registering = useSelector(state => state.registration.registering);
-    const dispatch = useDispatch();
+function RegisterPage () {
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+    passwordCheck: '',
+    passwordHint: '',
+    acceptTerms: false
+  })
+  const [submitted, setSubmitted] = useState(false)
+  const registering = useSelector(state => state.registration.registering)
+  const dispatch = useDispatch()
 
-    // reset login status
-    useEffect(() => {
-        dispatch(userActions.logout());
-    }, []);
+  // reset login status
+  useEffect(() => {
+    dispatch(userActions.logout())
+  }, [])
 
-    function handleChange(e) {
-        
-        let { name, value } = e.target;
-        
-        if(name === 'acceptTerms') {
-            const checkbox = document.querySelector('.checkbox');
-            value = checkbox && checkbox.checked ? true : false;
-            setUser(user => ({ ...user, [name]: value }));
-        } else {
-            setUser(user => ({ ...user, [name]: value }));
-        }
+  function handleChange (e) {
+    let { name, value } = e.target
+
+    if (name === 'acceptTerms') {
+      const checkbox = document.querySelector('.checkbox')
+      value = !!(checkbox && checkbox.checked)
+      setUser(user => ({ ...user, [name]: value }))
+    } else {
+      setUser(user => ({ ...user, [name]: value }))
     }
+  }
 
-    // These are split up as ideally I'd change the error message but I don't have time
-    function passwordIsCorrect() {
-        const password = user.password;
-        const numReg = /\d/;
-        const capReg = /[A-Z]/;
-        const pwdLen = user.password.length;
+  // These are split up as ideally I'd change the error message but I don't have time
+  function passwordIsCorrect () {
+    const password = user.password
+    const numReg = /\d/
+    const capReg = /[A-Z]/
+    const pwdLen = user.password.length
 
-        if(user.password !== user.passwordCheck) {
-            return false;
-        } 
-        if(!password.match(numReg)) {
-            return false
-        }
-        if(!password.match(capReg)) {
-            return false
-        }
-        if(pwdLen < 8) {
-            return false
-        }
-        if(pwdLen > 24) {
-            return false
-        }
-        else {
-            return true;
-        }
+    if (user.password !== user.passwordCheck) {
+      return false
     }
-
-    function handleSubmit(e) {
-        e.preventDefault();
-
-        setSubmitted(true);
-        if (passwordIsCorrect() && user.username && user.password && user.passwordCheck && user.acceptTerms) {
-            dispatch(userActions.register(user));
-        }
+    if (!password.match(numReg)) {
+      return false
     }
+    if (!password.match(capReg)) {
+      return false
+    }
+    if (pwdLen < 8) {
+      return false
+    }
+    if (pwdLen > 24) {
+      return false
+    } else {
+      return true
+    }
+  }
 
-    return (
+  function handleSubmit (e) {
+    e.preventDefault()
+
+    setSubmitted(true)
+    if (passwordIsCorrect() && user.username && user.password && user.passwordCheck && user.acceptTerms) {
+      dispatch(userActions.register(user))
+    }
+  }
+
+  return (
         <div className="col-lg-8 offset-lg-2">
             <Title titles={i18next.t('CreateYourPasswordManager')} />
 
             <div className="explainerText">
                 <p>{i18next.t('explainer')}</p>
             </div>
-    
+
             <form name="form" onSubmit={handleSubmit}>
 
             <div className="form-group">
@@ -95,7 +93,7 @@ function RegisterPage() {
                 </div>
 
                 <div className="form-inputs">
-                    <div className="form-group">    
+                    <div className="form-group">
                         <label>{i18next.t('firstPassword')}</label>
                         <input type="password" name="password" value={user.password} onChange={handleChange} className={'form-control' + (submitted && !user.password ? ' is-invalid' : '')} />
                         {submitted && !user.password &&
@@ -112,18 +110,18 @@ function RegisterPage() {
                     </div>
                 </div>
 
-                {submitted && !passwordIsCorrect() && 
+                {submitted && !passwordIsCorrect() &&
                 <div className="passwordWarning alert alert-danger">Passwords must match be between 8 and 24 characters and contain one number and one uppercase letter</div>}
 
                 <p>{i18next.t('passwordReminderText')}</p>
-                
+
                 <div className="form-group">
                         <label>{i18next.t('passwordReminderText')}</label>
                         <input type="text" name="passwordHint" value={user.passwordHint} onChange={handleChange} className='form-control' />
                     </div>
 
                     <div className="form-group form-check">
-                            <label for="acceptTerms" className="form-check-label">Accept Terms & Conditions</label>
+                            <label htmlFor="acceptTerms" className="form-check-label">Accept Terms & Conditions</label>
                             <input type="checkbox" name="acceptTerms" onChange={handleChange} className=
                             {'checkbox' + submitted && !user.acceptTerms ? 'checkbox is-invalid' : 'checkbox'} />
                             {submitted && !user.acceptTerms &&
@@ -140,7 +138,7 @@ function RegisterPage() {
                 </div>
             </form>
         </div>
-    );
+  )
 }
 
-export { RegisterPage };
+export { RegisterPage }

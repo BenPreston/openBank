@@ -1,30 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { Router, Route, Switch, Redirect } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { history } from '../_helpers';
-import { alertActions } from '../_actions';
-import { PrivateRoute } from '../_components';
-import { HomePage } from '../HomePage';
-import { LoginPage } from '../LoginPage';
-import { RegisterPage } from '../RegisterPage';
-import { WelcomePage } from '../WelcomePage';
+import { history } from '../_helpers'
+import { alertActions } from '../_actions'
+import { PrivateRoute } from '../_components'
+import { HomePage } from '../HomePage'
+import { LoginPage } from '../LoginPage'
+import { RegisterPage } from '../RegisterPage'
+import { WelcomePage } from '../WelcomePage'
 
 import './app.css'
-import i18next from '../_services/i18n';
 
-function App() {
-    
-    const alert = useSelector(state => state.alert);
-    const dispatch = useDispatch();
+function App () {
+  const alert = useSelector(state => state.alert)
+  const dispatch = useDispatch()
 
-    useEffect(() => {
-        history.listen((location, action) => {
-            dispatch(alertActions.clear());
-        });
-    }, []);
+  useEffect(() => {
+    history.listen((location, action) => {
+      dispatch(alertActions.clear())
+    })
+  }, [])
 
-    return (
+  return (
         <>
             <div className="main-container">
                 <div className="header main-header"></div>
@@ -50,13 +48,9 @@ function App() {
                         </Router>
                     </div>
                 </div>
-                {/* <div className="buttonSection">
-                    <button>{i18next.t('cancel')}</button>
-                    <button>{i18next.t('next')}</button>
-                </div> */}
             </div>
         </>
-    );
+  )
 }
 
-export { App };
+export { App }
